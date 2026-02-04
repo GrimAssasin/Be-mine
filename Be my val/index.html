@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div id="app">
+
+<!-- ================= HOME ================= -->
+<section id="home" class="screen active">
+  <div class="card">
+    <div class="emoji">💌</div>
+    <h1>Will You Be My Valentine, Dara?</h1>
+    <p class="sub">Choose wisely.</p>
+
+    <div class="btn-group">
+      <button id="yesBtn" class="btn yes">YES</button>
+      <button id="noBtn" class="btn no">No</button>
+    </div>
+
+    <div class="progress-wrap">
+      <label>Romance Probability</label>
+      <div class="progress">
+        <div id="loveBar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CUTE YES ================= -->
+<section id="cuteScreen" class="screen">
+  <div class="card">
+    <h2>Wait… really? 🥺💖</h2>
+    <p>I'm really glad that it is you.</p>
+    <button id="cuteContinueBtn" class="btn yes">Continue</button>
+  </div>
+</section>
+
+<!-- ================= NO SCREEN ================= -->
+<section id="noScreen" class="screen">
+  <div class="card">
+    <h2 id="noMessage">That seems incorrect 🤨</h2>
+    <button id="retryBtn" class="btn yes">Try Again</button>
+  </div>
+</section>
+
+<!-- ================= CAPTCHA ================= -->
+<section id="captcha" class="screen">
+  <div class="card">
+    <h2>Security Check 🔒</h2>
+    <p>Prove you are not heartless</p>
+
+    <div class="fake-captcha">
+      <label>
+        <input type="checkbox" id="heartCheck">
+        I am not heartless
+      </label>
+    </div>
+
+    <button id="captchaBtn" class="btn yes">Continue</button>
+  </div>
+</section>
+
+<!-- ================= YES SUCCESS ================= -->
+<section id="yesScreen" class="screen">
+  <div class="card">
+    <h1>Accepted ✅</h1>
+    <p id="yesMsg">Certified good taste detected.</p>
+    <p>Chocolate delivery pending 🍫</p>
+
+    <button id="giftsBtn" class="btn yes">
+      Click here to view pre-Valentine gifts
+    </button>
+  </div>
+</section>
+
+<!-- ================= GAMES HUB ================= -->
+<section id="gamesHub" class="screen">
+  <div class="card">
+    <h2>Choose Your Gift Game 🎮</h2>
+
+    <div class="game-grid">
+
+      <div class="game-card" data-game="crossword">
+        <img src="assets/images/crossword.jpeg">
+        <h3>Love Crossword</h3>
+      </div>
+
+      <div class="game-card" data-game="puzzle">
+        <img src="assets/images/word.jpeg">
+        <h3>Picture Puzzle</h3>
+      </div>
+
+      <div class="game-card" data-game="hangman">
+        <img src="assets/images/hangman.jpeg">
+        <h3>Love Hangman</h3>
+      </div>
+
+    </div>
+
+    <button class="btn no" onclick="goTo('home')">Back</button>
+  </div>
+</section>
+
+<!-- ================= PUZZLE GAME ================= -->
+<section id="puzzleScreen" class="screen">
+  <div class="card">
+    <h2>Picture Puzzle 🧩</h2>
+    <p>Tap two tiles to swap them</p>
+    <p>Solve the puzzle to reveal the hidden message</p>
+
+    <div id="puzzleGrid" class="puzzle-grid"></div>
+    <p id="puzzleStatus"></p>
+
+    <button class="btn no" onclick="goTo('gamesHub')">Back</button>
+  </div>
+</section>
+
+<!-- ================= HANGMAN GAME ================= -->
+<section id="hangmanScreen" class="screen">
+  <div class="card">
+    <h2>💌 Love Hangman</h2>
+    <p id="hmRiddle" class="riddle"></p>
+
+    <div id="hmHearts"></div>
+    <div id="hmWord"></div>
+    <div id="hmLetters"></div>
+    <p id="hmStatus"></p>
+
+    <button class="btn no" onclick="goTo('gamesHub')">Back</button>
+  </div>
+</section>
+
+<!-- ================= CROSSWORD GAME ================= -->
+<section id="crosswordScreen" class="screen">
+  <div class="card">
+    <h2>💘 Love Crossword</h2>
+
+    <div id="cwGrid" class="cw-grid"></div>
+
+    <div class="cw-clues">
+      <h3>Clues</h3>
+      <ul id="cwClues"></ul>
+    </div>
+
+    <button id="cwCheckBtn" class="btn yes">Check Answers</button>
+    <p id="cwStatus"></p>
+
+    <button class="btn no" onclick="goTo('gamesHub')">Back</button>
+  </div>
+</section>
+
+</div>
+
+<!-- ================= AUDIO ================= -->
+<audio id="gameMusic" src="assets/audio/mercy.mp3" loop></audio>
+
+<!-- ================= JS ================= -->
+<script src="js/state.js"></script>
+<script src="js/messages.js"></script>
+<script src="js/app.js"></script>
+<script src="js/game.js"></script>
+
+</body>
+</html>
